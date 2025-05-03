@@ -3,7 +3,11 @@ export default function Player() {
 
   const [playerName, setPlayerName] = useState('');
   const playerNameRef = useRef(null);
-
+  
+  function handleSetName(){
+    setPlayerName(playerNameRef.current.value);
+    playerNameRef.current.value = "";
+  };
 
 
   return (
@@ -15,7 +19,7 @@ export default function Player() {
           ref={playerNameRef}
            />
 
-        <button onClick={()=>setPlayerName(playerNameRef.current?.value)}>Set Name</button>
+        <button onClick={()=> handleSetName()}>Set Name</button>
       </p>
     </section>
   );
