@@ -1,8 +1,9 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 export default function Player() {
 
   const [playerName, setPlayerName] = useState('');
   const playerNameRef = useRef(null);
+
   
   function handleSetName(){
     setPlayerName(playerNameRef.current.value);
