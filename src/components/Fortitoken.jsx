@@ -10,8 +10,8 @@ export default function Fortitoken() {
       setFortitoken((prevState) => ({
         ...prevState,
         token: generateToken()
-      }));
-    }, 6000); 
+      }));      
+    }, 6000);     
 
     return () => clearInterval(interval);
   }, []);
