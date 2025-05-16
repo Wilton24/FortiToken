@@ -14,7 +14,9 @@ export default function Player() {
 
   return (
     <section id="player">
-      {playerName && <DisplayNameModal />}
+      {playerName && 
+        <DisplayNameModal setPlayerName={setPlayerName}/>}
+        
       <h2>Welcome, {playerName ? `nigga ${playerName}!` : 'nigga!'}</h2>
       <p>
         <input          
