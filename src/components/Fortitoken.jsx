@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 import DialogueModal from "./Modals/DialogueModal";
 import { useState, useEffect, useRef } from "react";
 
-export default function Fortitoken() {
+export default function Fortitoken({playerName, setPlayerName}) {
   const [fortitoken, setFortitoken] = useState({token: ""});
   const dialogRef = useRef();
 
@@ -31,7 +31,10 @@ export default function Fortitoken() {
     <>
       <div id="fortitoken-wrapper">
         <NavBar />
-        <DialogueModal ref={dialogRef}/>
+        <DialogueModal 
+          ref={dialogRef} 
+          playerName={playerName} />
+
         <ul className="fortitoken-list">
           <li>
             <h3>Fortitoken #1</h3>

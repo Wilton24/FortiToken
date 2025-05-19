@@ -1,13 +1,21 @@
-import { useRef, forwardRef } from "react";
+import { useRef, forwardRef, useImperativeHandle } from "react";
 
 
-const DialogueModal = forwardRef((props, ref)=>{
+const DialogueModal = forwardRef(({playerName}, dialogRef)=>{
   
+  useImperativeHandle(ref, ()=>{
+    return {
+      openDialogue(){
+        dialogRef.current.showModal();
+      }
+    }
+  })
+
   return (
-    <dialog ref={ref}>
+    <dialog ref={dialogRef}>
       <form method="dialog">
-        <p>Are you sure you want to do this?</p>
-        <button>Close</button>
+        <p>Are you sure you want to do this Nigga {playerName}?</p>
+        <button>X</button>
       </form>
     </dialog>
   )
