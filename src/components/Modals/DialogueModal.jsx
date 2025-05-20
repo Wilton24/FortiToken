@@ -1,4 +1,5 @@
 import { useRef, forwardRef, useImperativeHandle } from "react";
+import { createPortal } from "react-dom";
 
 
 const DialogueModal = forwardRef(({playerName}, dialogRef)=>{
@@ -14,12 +15,15 @@ const DialogueModal = forwardRef(({playerName}, dialogRef)=>{
   });
 
   return (
-    <dialog ref={dialogueModalRef}>
-      <form method="dialog">
-        <p>Are you sure you want to do this Nigga {playerName}?</p>
-        <button>X</button>
-      </form>
-    </dialog>
+    createPortal(
+      <dialog ref={dialogueModalRef}>
+        <form method="dialog">
+          <p>Are you sure you want to do this Nigga {playerName}?</p>
+          <button>X</button>
+        </form>
+     </dialog>,
+     document.getElementById('modal')
+    )
   )
 });
 

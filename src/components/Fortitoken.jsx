@@ -8,6 +8,8 @@ export default function Fortitoken({playerName, setPlayerName}) {
   const [fortitoken, setFortitoken] = useState({token: ""});
   const dialogRef = useRef();
 
+  const parentRef = useRef();
+
   useEffect(() => {
     const interval = setInterval(() => {
       setFortitoken((prevState) => ({
@@ -28,6 +30,10 @@ export default function Fortitoken({playerName, setPlayerName}) {
     dialogRef.current.openDialogue();
   };
 
+  function focusChild(){
+    parentRef.current.focusFire();    
+  };
+
   return (
     <>
       <div id="fortitoken-wrapper">
@@ -42,13 +48,14 @@ export default function Fortitoken({playerName, setPlayerName}) {
             <div className="token-list">
               <h2>{fortitoken.token}</h2>
               <p className="eyes" onClick={()=> openDialogue()}>EYES</p>
-              <p>Cooldown</p>
+              <p onClick={()=> parentRef.current.SayHi()}>Cooldown</p>
               <p>Carret right</p>
             </div>
           </li>
         </ul>
+      <button onClick={()=> focusChild()}>Focus child</button>
       </div>
-      <ImperativeHandle />
+      <ImperativeHandle ref={parentRef}/>
     </>
 
 
