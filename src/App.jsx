@@ -17,6 +17,8 @@ function App() {
       <Fortitoken 
         playerName={playerName}
         setPlayerName={setPlayerName}/>
+
+      
     </>
   );
 }

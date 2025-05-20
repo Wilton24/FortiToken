@@ -1,6 +1,7 @@
 import "../styles/fortitoken.css";
 import NavBar from "./NavBar";
 import DialogueModal from "./Modals/DialogueModal";
+import ImperativeHandle from "./ImperativeHandle";
 import { useState, useEffect, useRef } from "react";
 
 export default function Fortitoken({playerName, setPlayerName}) {
@@ -24,7 +25,7 @@ export default function Fortitoken({playerName, setPlayerName}) {
   };
   
   function openDialogue(){
-    dialogRef.current.showModal();
+    dialogRef.current.openDialogue();
   };
 
   return (
@@ -47,6 +48,7 @@ export default function Fortitoken({playerName, setPlayerName}) {
           </li>
         </ul>
       </div>
+      <ImperativeHandle />
     </>
 
 
